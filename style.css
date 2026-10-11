@@ -225,3 +225,18 @@ svg { display: block; }
   .section-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .footer-inner { justify-content: center; text-align: center; }
 }
+
+
+/* Proyecto destacado: tarjeta a todo el ancho para que la cuadrícula no deje una tarjeta suelta */
+.project--featured { grid-column: 1 / -1; flex-direction: row; border-color: var(--line2); }
+.project--featured .thumb { position: relative; flex: 0 0 42%; height: auto; min-height: 230px; border-bottom: 0; border-right: 1px solid var(--line); }
+.project--featured .thumb svg { position: absolute; inset: 0; }
+.project--featured .project-body { justify-content: center; padding: 26px 30px; }
+.project--featured h3 { font-size: 22px; }
+.project--featured .desc { margin-top: 12px; max-width: 62ch; color: var(--muted); font-size: 14.5px; }
+.project--featured .project-actions { margin-top: 20px; padding-top: 0; max-width: 340px; }
+@media (max-width: 760px) {
+  .project--featured { flex-direction: column; }
+  .project--featured .thumb { flex: none; width: 100%; min-height: 0; aspect-ratio: 360 / 220; border-right: 0; border-bottom: 1px solid var(--line); }
+  .project--featured .project-body { padding: 18px; }
+}

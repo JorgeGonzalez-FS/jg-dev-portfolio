@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURORA | Tienda de audio</title>
+  <meta name="description" content="Tienda online de ejemplo: catálogo con filtros, búsqueda, orden y carrito de compras.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="AURORA, ir al inicio">AURORA</a>
+      <a class="back" href="../index.html">← Portafolio JG Dev</a>
+      <button class="cart-btn" id="open-cart" type="button" aria-label="Abrir carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Portada -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <h1>Sonido que<br>te envuelve</h1>
+          <p>Auriculares, earbuds y altavoces con un diseño sencillo y un sonido que se nota desde el primer minuto.</p>
+          <a class="btn btn-dark" href="#catalogo">Ver productos</a>
+        </div>
+        <svg class="hero-art" viewBox="0 0 320 300" aria-hidden="true">
+          <circle cx="160" cy="150" r="130" fill="#e3e8f2"/>
+          <path d="M70 190v-30a90 90 0 0 1 180 0v30" fill="none" stroke="#1b1f2a" stroke-width="16" stroke-linecap="round"/>
+          <rect x="48" y="170" width="52" height="92" rx="26" fill="#14171f"/>
+          <rect x="220" y="170" width="52" height="92" rx="26" fill="#14171f"/>
+          <rect x="60" y="188" width="14" height="56" rx="7" fill="#ff5a3c"/>
+          <rect x="246" y="188" width="14" height="56" rx="7" fill="#ff5a3c"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Catálogo -->
+    <section class="catalog" id="catalogo" aria-labelledby="cat-title">
+      <div class="wrap">
+        <div class="catalog-head">
+          <h2 id="cat-title">Catálogo</h2>
+          <p class="results" id="results" aria-live="polite"></p>
+        </div>
+
+        <div class="toolbar">
+          <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
+          <div class="tools">
+            <label class="sr-only" for="search">Buscar productos</label>
+            <input id="search" type="search" placeholder="Buscar producto">
+            <label class="sr-only" for="sort">Ordenar productos</label>
+            <select id="sort">
+              <option value="destacados">Destacados</option>
+              <option value="precio-asc">Precio: de menor a mayor</option>
+              <option value="precio-desc">Precio: de mayor a menor</option>
+              <option value="nombre">Nombre (A–Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid" id="products"></div>
+        <p class="empty" id="empty" hidden>No encontramos productos con esa búsqueda. Prueba con otra palabra o cambia de categoría.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 AURORA · Tienda de demostración: los productos son ficticios y no se realiza ningún cobro.</p>
+    </div>
+  </footer>
+
+  <!-- Carrito -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" inert>
+    <div class="drawer-head">
+      <h2 id="drawer-title">Tu carrito</h2>
+      <button class="close" id="close-cart" type="button" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <ul class="cart-list" id="cart-list"></ul>
+    <p class="cart-empty" id="cart-empty">Tu carrito está vacío. Añade algún producto del catálogo.</p>
+    <div class="drawer-foot" id="drawer-foot">
+      <p class="total"><span>Total</span><strong id="cart-total">$0</strong></p>
+      <button class="btn btn-dark btn-block" id="checkout-btn" type="button">Finalizar compra</button>
+      <button class="link" id="clear-cart" type="button">Vaciar carrito</button>
+    </div>
+  </aside>
+
+  <!-- Compra simulada -->
+  <dialog id="checkout" aria-labelledby="checkout-title">
+    <h2 id="checkout-title">Compra simulada</h2>
+    <p id="checkout-text"></p>
+    <p class="demo">Esto es una demostración: no se ha hecho ningún cobro ni se ha enviado ningún pedido.</p>
+    <button class="btn btn-dark" id="checkout-close" type="button">Seguir mirando</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

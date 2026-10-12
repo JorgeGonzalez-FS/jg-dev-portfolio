@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexo | Business Dashboard</title>
+  <meta name="description" content="Panel administrativo de ejemplo: indicadores, gráficos y tabla de pedidos con búsqueda, filtros y exportación.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <a class="logo" href="#" aria-label="Nexo, panel de control">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M8.5 7.5 15.5 16.5M9 6h6"/></svg>
+        Nexo
+      </a>
+      <nav aria-label="Secciones del panel">
+        <button class="nav-btn active" type="button" data-view="resumen" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Resumen
+        </button>
+        <button class="nav-btn" type="button" data-view="pedidos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          Pedidos
+        </button>
+      </nav>
+      <a class="back" href="../index.html">← Portafolio JG Dev</a>
+    </aside>
+
+    <div class="content">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Resumen</h1>
+          <p class="sub" id="page-sub">Así van las ventas de Nexo Store.</p>
+        </div>
+        <div class="range" id="range-box">
+          <label for="range">Periodo</label>
+          <select id="range">
+            <option value="6">Últimos 6 meses</option>
+            <option value="12" selected>Últimos 12 meses</option>
+          </select>
+        </div>
+      </header>
+
+      <main>
+        <!-- Vista: Resumen -->
+        <section id="view-resumen" aria-labelledby="page-title">
+          <div class="kpis" id="kpis"></div>
+
+          <div class="grid-2">
+            <article class="panel">
+              <h2>Ingresos por mes</h2>
+              <div class="chart" id="bar-chart"></div>
+            </article>
+            <article class="panel">
+              <h2>Ventas por categoría</h2>
+              <div class="donut-wrap">
+                <div class="chart" id="donut-chart"></div>
+                <ul class="legend" id="legend"></ul>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>Pedidos recientes</h2>
+              <button class="link-btn" type="button" data-view="pedidos">Ver todos</button>
+            </div>
+            <ul class="recent" id="recent"></ul>
+          </article>
+        </section>
+
+        <!-- Vista: Pedidos -->
+        <section id="view-pedidos" hidden aria-labelledby="page-title">
+          <article class="panel">
+            <div class="toolbar">
+              <div class="search">
+                <label class="sr-only" for="search">Buscar pedidos</label>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                <input id="search" type="search" placeholder="Buscar por cliente, producto o número">
+              </div>
+              <div class="toolbar-right">
+                <label class="sr-only" for="status">Filtrar por estado</label>
+                <select id="status">
+                  <option value="">Todos los estados</option>
+                  <option>Completado</option>
+                  <option>Enviado</option>
+                  <option>Pendiente</option>
+                  <option>Cancelado</option>
+                </select>
+                <button class="btn" type="button" id="export">Exportar CSV</button>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col"><button type="button" data-sort="id">Pedido</button></th>
+                    <th scope="col"><button type="button" data-sort="cliente">Cliente</button></th>
+                    <th scope="col"><button type="button" data-sort="producto">Producto</button></th>
+                    <th scope="col"><button type="button" data-sort="fecha">Fecha</button></th>
+                    <th scope="col" class="num"><button type="button" data-sort="total">Total</button></th>
+                    <th scope="col"><button type="button" data-sort="estado">Estado</button></th>
+                  </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+              </table>
+            </div>
+            <p class="table-foot" id="count" aria-live="polite"></p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

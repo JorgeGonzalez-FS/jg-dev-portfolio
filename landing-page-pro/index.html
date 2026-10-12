@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Pro | Tu negocio en la web</title>
+  <meta name="description" content="Landing page de ejemplo para negocios: diseño adaptable, carga rápida y formulario de contacto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="wrap header-inner">
+      <a href="#inicio" class="brand" aria-label="Cumbre Web, ir al inicio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26 12 8l6 10 3-5 9 13z" fill="currentColor"/></svg>
+        Cumbre Web
+      </a>
+      <nav aria-label="Principal">
+        <ul class="menu" id="menu">
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#proceso">Cómo trabajamos</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+          <li><a class="btn btn-amber btn-sm" href="#contacto">Pedir presupuesto</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Portada -->
+    <section class="hero" id="inicio">
+      <svg class="hero-bg" viewBox="0 220 1440 380" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <polygon points="0,600 0,380 140,300 260,360 420,240 560,350 700,280 860,380 1000,260 1160,340 1300,290 1440,360 1440,600" fill="#3a5780"/>
+        <polygon points="1000,260 962,292 980,286 992,300 1008,288 1022,298 1042,286" fill="#e9f0f9" opacity=".9"/>
+        <polygon points="0,600 0,470 180,380 330,450 520,330 700,460 880,400 1060,470 1240,370 1440,470 1440,600" fill="#243e66"/>
+        <polygon points="0,600 0,520 220,470 460,540 720,490 980,550 1220,500 1440,540 1440,600" fill="#0f2038"/>
+      </svg>
+      <div class="wrap hero-inner">
+        <h1>Tu negocio<br>en la web</h1>
+        <p class="lead">Creamos páginas claras y rápidas para que tus clientes te encuentren, entiendan lo que ofreces y te escriban sin complicaciones.</p>
+        <div class="actions">
+          <a class="btn btn-amber" href="#contacto">Pedir presupuesto</a>
+          <a class="btn btn-line" href="#planes">Ver planes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="section" id="beneficios">
+      <div class="wrap">
+        <h2>Una página pensada para vender, no solo para verse bien</h2>
+        <ul class="benefits">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            <h3>Se ve bien en cualquier pantalla</h3>
+            <p>Móvil, tableta u ordenador: el diseño se adapta para que se lea y se use con comodidad.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+            <h3>Carga rápida</h3>
+            <p>Código ligero y sin recargas innecesarias. Tus visitantes no se van mientras esperan.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <h3>Fácil de encontrar</h3>
+            <p>Títulos, descripciones y estructura preparados para que los buscadores entiendan tu negocio.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+            <h3>Fácil de actualizar</h3>
+            <p>Cambiar un precio, un horario o un texto no debería requerir un técnico. Aquí tampoco.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="section section-dark" id="proceso">
+      <div class="wrap">
+        <h2>Así trabajamos, paso a paso</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-n">1</span>
+            <h3>Hablamos de tu negocio</h3>
+            <p>Nos cuentas qué vendes, a quién y qué quieres que haga tu página. Con eso definimos el alcance.</p>
+          </li>
+          <li>
+            <span class="step-n">2</span>
+            <h3>Diseñamos y te lo mostramos</h3>
+            <p>Preparas tus textos y fotos, nosotros montamos la página. Revisas, pides cambios y los ajustamos.</p>
+          </li>
+          <li>
+            <span class="step-n">3</span>
+            <h3>Publicamos y te acompañamos</h3>
+            <p>Ponemos la página en línea y resolvemos dudas durante las primeras semanas.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Planes -->
+    <section class="section" id="planes">
+      <div class="wrap">
+        <h2>Elige el plan que encaja con tu negocio</h2>
+        <p class="note">Precios de ejemplo para esta demostración.</p>
+        <div class="plans">
+          <article class="plan">
+            <h3>Esencial</h3>
+            <p class="plan-for">Para presentarte en internet</p>
+            <p class="price">$150</p>
+            <ul>
+              <li>Una página con todas tus secciones</li>
+              <li>Diseño adaptable a móvil</li>
+              <li>Botón de WhatsApp y correo</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contacto" data-plan="Esencial">Elegir Esencial</a>
+          </article>
+          <article class="plan plan-featured">
+            <span class="plan-tag">Más elegido</span>
+            <h3>Profesional</h3>
+            <p class="plan-for">Para atraer y convertir clientes</p>
+            <p class="price">$350</p>
+            <ul>
+              <li>Todo lo del plan Esencial</li>
+              <li>Formulario de contacto</li>
+              <li>Preparada para buscadores</li>
+              <li>Mapa y horarios</li>
+            </ul>
+            <a class="btn btn-amber" href="#contacto" data-plan="Profesional">Elegir Profesional</a>
+          </article>
+          <article class="plan">
+            <h3>A medida</h3>
+            <p class="plan-for">Para necesidades específicas</p>
+            <p class="price">A consultar</p>
+            <ul>
+              <li>Varias páginas o secciones</li>
+              <li>Funciones personalizadas</li>
+              <li>Mantenimiento mensual</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contacto" data-plan="A medida">Hablemos</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas -->
+    <section class="section section-soft" id="preguntas">
+      <div class="wrap narrow">
+        <h2>Preguntas frecuentes</h2>
+        <details>
+          <summary>¿Cuánto tarda en estar lista mi página?</summary>
+          <p>Depende del plan y de cuándo recibamos tus textos e imágenes. Una página sencilla suele estar lista en una o dos semanas.</p>
+        </details>
+        <details>
+          <summary>¿Necesito tener dominio y hosting?</summary>
+          <p>No hace falta que lo tengas. Te ayudamos a elegir y configurar ambos, o usamos los que ya tengas.</p>
+        </details>
+        <details>
+          <summary>¿Puedo pedir cambios después de publicarla?</summary>
+          <p>Sí. Los ajustes pequeños de las primeras semanas están incluidos y después puedes contratar mantenimiento.</p>
+        </details>
+        <details>
+          <summary>¿Se verá bien en el móvil?</summary>
+          <p>Sí. Probamos cada página en distintos tamaños de pantalla antes de entregártela.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto">
+      <div class="wrap contact">
+        <div>
+          <h2>Cuéntanos qué necesitas</h2>
+          <p class="lead-dark">Escribe un par de líneas sobre tu negocio y te respondemos con una propuesta.</p>
+          <p class="demo-note">Esta es una página de demostración: el formulario valida los datos pero no envía el mensaje a ningún sitio.</p>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+            <p class="error" id="err-nombre" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <p class="error" id="err-email" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="plan">Plan que te interesa</label>
+            <select id="plan" name="plan">
+              <option value="">Aún no lo sé</option>
+              <option>Esencial</option>
+              <option>Profesional</option>
+              <option>A medida</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <p class="error" id="err-mensaje" role="alert"></p>
+          </div>
+          <button class="btn btn-amber" type="submit">Enviar mensaje</button>
+        </form>
+
+        <div class="success" id="success" hidden>
+          <h3>Mensaje recibido</h3>
+          <p id="success-text"></p>
+          <button class="btn btn-ghost" type="button" id="again">Escribir otro mensaje</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Cumbre Web · Proyecto de demostración</p>
+      <a href="../index.html">← Volver al portafolio de JG Dev</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

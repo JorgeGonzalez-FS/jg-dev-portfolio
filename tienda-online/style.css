@@ -1,0 +1,139 @@
+/* ==========================================================
+   AURORA Tienda Online | Estilos
+   1. Variables y base
+   2. Cabecera y portada
+   3. Catálogo: filtros y tarjetas de producto
+   4. Carrito (panel lateral) y diálogo de compra
+   5. Pie y responsive
+   ========================================================== */
+
+/* 1. Variables y base */
+:root {
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --art: #e9edf4;
+  --ink: #14171f;
+  --muted: #5d667a;
+  --line: #dde2ec;
+  --accent: #ff5a3c;
+  --font-head: "Montserrat", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 80px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.6; }
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+svg { display: block; }
+button, input, select { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.wrap { width: min(1160px, 100% - 48px); margin-inline: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; border: 0; border-radius: 999px; font-weight: 600; font-size: 15px; cursor: pointer; transition: background .15s, transform .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark:hover { background: #2b3040; }
+.btn-block { width: 100%; }
+
+/* 2. Cabecera y portada */
+.header { position: sticky; top: 0; z-index: 20; background: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.logo { font: 800 20px/1 var(--font-head); letter-spacing: 5px; }
+.back { margin-left: auto; font-size: 13.5px; color: var(--muted); }
+.back:hover { color: var(--ink); }
+.cart-btn { position: relative; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: #fff; cursor: pointer; }
+.cart-btn svg { width: 21px; height: 21px; }
+.cart-count { position: absolute; top: -5px; right: -5px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--accent); color: #fff; font: 700 11.5px/20px var(--font-body); text-align: center; }
+.cart-count.bump { animation: bump .3s; }
+@keyframes bump { 50% { transform: scale(1.35); } }
+
+.hero { background: #fff; border-bottom: 1px solid var(--line); }
+.hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 32px; padding: 56px 0; }
+.hero h1 { font: 800 clamp(38px, 6vw, 64px)/1.04 var(--font-head); letter-spacing: -1.5px; }
+.hero p { margin: 20px 0 30px; max-width: 440px; color: var(--muted); font-size: 17px; }
+.hero-art { width: 100%; max-width: 380px; margin-inline: auto; }
+
+/* 3. Catálogo */
+.catalog { padding: 56px 0 72px; }
+.catalog-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.catalog h2 { font: 800 28px/1.2 var(--font-head); letter-spacing: -.5px; }
+.results { color: var(--muted); font-size: 14px; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 28px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: 14px; font-weight: 500; cursor: pointer; }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.tools { display: flex; flex-wrap: wrap; gap: 10px; }
+.tools input, .tools select { padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font-size: 14px; }
+.tools input { width: 210px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(236px, 1fr)); gap: 22px; }
+.product { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.art { position: relative; display: grid; place-items: center; aspect-ratio: 1 / .82; background: var(--art); }
+.art svg { width: 62%; height: auto; }
+.tag { position: absolute; top: 12px; left: 12px; padding: 3px 11px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; }
+.info { display: flex; flex-direction: column; flex: 1; padding: 16px 18px 18px; }
+.cat { font-size: 12.5px; color: var(--muted); }
+.product h3 { margin-top: 2px; font: 700 17px/1.3 var(--font-head); }
+.desc { margin-top: 6px; color: var(--muted); font-size: 14px; }
+.buy { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 16px; }
+.price { font: 800 20px/1 var(--font-head); }
+.add { padding: 10px 16px; border: 0; border-radius: 999px; background: var(--ink); color: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.add:hover { background: var(--accent); }
+.empty { padding: 48px 0; text-align: center; color: var(--muted); }
+
+/* 4. Carrito y diálogo */
+.overlay { position: fixed; inset: 0; z-index: 30; background: rgba(10, 14, 24, .5); }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 40; display: flex; flex-direction: column; width: min(420px, 100%); background: #fff; box-shadow: -12px 0 40px rgba(0, 0, 0, .18); transform: translateX(105%); visibility: hidden; transition: transform .28s ease, visibility .28s; }
+.drawer.open { transform: none; visibility: visible; }
+@media (prefers-reduced-motion: reduce) { .drawer { transition: none; } }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 1px solid var(--line); }
+.drawer-head h2 { font: 800 20px/1.2 var(--font-head); }
+.close { width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--bg); cursor: pointer; }
+.close svg { width: 18px; height: 18px; }
+.cart-list { flex: 1; overflow-y: auto; padding: 8px 22px; }
+.cart-item { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.cart-art { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 12px; background: var(--art); }
+.cart-art svg { width: 70%; height: auto; }
+.cart-name { font-weight: 600; line-height: 1.3; }
+.cart-unit { font-size: 13px; color: var(--muted); }
+.qty { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; border: 1px solid var(--line); border-radius: 999px; }
+.qty button { width: 30px; height: 30px; border: 0; background: none; font-size: 17px; cursor: pointer; border-radius: 50%; }
+.qty button:hover { background: var(--bg); }
+.qty span { min-width: 22px; text-align: center; font-weight: 600; font-size: 14px; }
+.line-total { font-weight: 700; }
+.remove { display: block; margin: 6px 0 0 auto; padding: 0; border: 0; background: none; color: var(--muted); font-size: 12.5px; text-decoration: underline; cursor: pointer; }
+.cart-empty { padding: 36px 22px; color: var(--muted); }
+.drawer-foot { padding: 18px 22px 22px; border-top: 1px solid var(--line); }
+.total { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+.total strong { font: 800 24px/1 var(--font-head); }
+.link { display: block; margin: 12px auto 0; padding: 0; border: 0; background: none; color: var(--muted); font-size: 13.5px; text-decoration: underline; cursor: pointer; }
+
+dialog { width: min(440px, calc(100% - 32px)); padding: 30px; border: 0; border-radius: 18px; box-shadow: 0 30px 80px rgba(0, 0, 0, .3); }
+dialog::backdrop { background: rgba(10, 14, 24, .55); }
+dialog h2 { font: 800 22px/1.2 var(--font-head); }
+dialog p { margin-top: 12px; color: var(--muted); }
+dialog .demo { padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--bg); font-size: 14px; }
+dialog .btn { margin-top: 22px; }
+
+.toast { position: fixed; left: 50%; bottom: 24px; z-index: 50; padding: 12px 20px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 500; opacity: 0; pointer-events: none; transform: translate(-50%, 12px); transition: opacity .2s, transform .2s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* 5. Pie y responsive */
+.footer { border-top: 1px solid var(--line); background: #fff; font-size: 13.5px; color: var(--muted); }
+.footer-inner { padding: 22px 0; }
+
+@media (max-width: 760px) {
+  .hero-inner { grid-template-columns: 1fr; padding: 36px 0; }
+  .hero-art { max-width: 260px; order: -1; }
+  .tools { width: 100%; }
+  .tools input { flex: 1; width: auto; min-width: 0; }
+  .back { display: none; }
+  .cart-btn { margin-left: auto; }
+}
